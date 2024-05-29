@@ -1,0 +1,25 @@
+<%- include('partials/header', { title: 'Dashboard' }) %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Bienvenido al Dashboard</h1>
+            <!-- Contenido adicional aquí -->
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            alert('No estás autenticado');
+            window.location.href = '/login';  // Redirigir al usuario a la página de inicio de sesión
+            return;
+        }
+
+        // Aquí podrías realizar solicitudes adicionales si es necesario, asegurándote de enviar el token en el encabezado
+    });
+</script>
+
+<%- include('partials/footer') %>

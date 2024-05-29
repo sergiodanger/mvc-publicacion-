@@ -1,0 +1,45 @@
+<%- include('partials/header', { title: 'Vehículos' }) %>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="input-group mb-3">
+                <input type="text" id="search-input" class="form-control form-control-lg" placeholder="Buscar por marca o modelo">
+                <div class="input-group-append">
+                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                </div>
+            </div>
+            <ul id="vehiculos-list" class="list-group mt-3"></ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const searchInput = document.getElementById('search-input');
+        const vehiculosList = document.getElementById('vehiculos-list');
+
+        searchInput.addEventListener('input', async () => {
+            const query = searchInput.value;
+            if (query.length > 0) {
+                const response = await fetch(`/vehiculos/search?query=${query}`);
+                if (response.ok) {
+                    const vehiculos = await response.json();
+                    vehiculosList.innerHTML = '';
+                    vehiculos.forEach(vehiculo => {
+                        const item = document.createElement('li');
+                        item.classList.add('list-group-item');
+                        item.innerHTML = `<a href="/vehiculos/${vehiculo.id}">${vehiculo.Marca} - ${vehiculo.Modelo} - ${vehiculo.Combustible}</a>`;
+                        vehiculosList.appendChild(item);
+                    });
+                } else {
+                    vehiculosList.innerHTML = '<li class="list-group-item">No se encontraron resultados</li>';
+                }
+            } else {
+                vehiculosList.innerHTML = '';
+            }
+        });
+    });
+</script>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,26 @@
+<%- include('partials/header', { title: 'Detalles del Vehículo' }) %>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1><%= vehiculo.Marca %> <%= vehiculo.Modelo %></h1>
+            <p><strong>Combustible:</strong> <%= vehiculo.Combustible %></p>
+            <p><strong>Año:</strong> <%= vehiculo.Año %></p>
+            <p><strong>Precio:</strong> $<%= vehiculo.Precio %></p>
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="/images/<%= vehiculo.Imagen1 %>" alt="<%= vehiculo.Marca %> <%= vehiculo.Modelo %>" class="img-fluid">
+                </div>
+                <div class="col-md-6">
+                    <img src="/images/<%= vehiculo.Imagen2 %>" alt="<%= vehiculo.Marca %> <%= vehiculo.Modelo %>" class="img-fluid">
+                </div>
+            </div>
+            <form action="/carrito/agregar" method="POST">
+                <input type="hidden" name="id" value="<%= vehiculo.id %>">
+                <button type="submit" class="btn btn-primary mt-3">Comprar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

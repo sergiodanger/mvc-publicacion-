@@ -1,0 +1,21 @@
+<!-- views/carrito.ejs -->
+<%- include('partials/header') %>
+<div class="container mt-5">
+    <h1>Carrito de Compras</h1>
+    <% if (carrito.length > 0) { %>
+        <ul class="list-group">
+            <% carrito.forEach(vehiculo => { %>
+                <li class="list-group-item">
+                    <h5><%= vehiculo.Marca %> <%= vehiculo.Modelo %></h5>
+                    <p><strong>Combustible:</strong> <%= vehiculo.Combustible %></p>
+                    <p><strong>Año:</strong> <%= vehiculo.Año %></p>
+                    <p><strong>Precio:</strong> <%= vehiculo.Precio %></p>
+                    <img src="/images/<%= vehiculo.Imagen1 %>" alt="<%= vehiculo.Marca %> <%= vehiculo.Modelo %> - Imagen 1" class="img-fluid">
+                </li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <p>No hay vehículos en el carrito.</p>
+    <% } %>
+</div>
+<%- include('partials/footer') %>
