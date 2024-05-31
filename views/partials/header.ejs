@@ -37,6 +37,14 @@
             <ul class="navbar-nav ml-auto">
                 <% if (user) { %>
                     <li class="nav-item">
+                        <a class="nav-link" href="/carrito">
+                            <i class="fas fa-shopping-cart"></i> Carrito
+                            <% if (typeof carrito !== 'undefined' && carrito.length > 0) { %>
+                                <span class="badge badge-light"><%= carrito.length %></span>
+                            <% } %>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/auth/logout">Cerrar Sesión</a>
                     </li>
                 <% } else { %>

@@ -1,19 +1,25 @@
-// controllers/carritoController.js
-const Vehiculo = require('../models/Vehiculo');
+const Vehiculo = require('../models/Vehiculo.js');
 
 let carrito = [];
 
 exports.agregarAlCarrito = (req, res) => {
-    console.log('Intentando agregar al carrito, ID:', req.body.id);
-    const vehiculo = Vehiculo.getVehiculoById(req.body.id);
-    if (vehiculo) {
-        carrito.push(vehiculo);
-        console.log('Vehículo agregado:', vehiculo);
-        res.redirect('/carrito');
-    } else {
-        console.error('Vehículo no encontrado');
-        res.status(404).send('Vehículo no encontrado');
+    const vehiculoId = req.body.id;
+    if (!vehiculoId) {
+        return res.status(400).send('ID de vehículo no proporcionado');
     }
+    Vehiculo.findByPk(vehiculoId)
+        .then(vehiculo => {
+            if (vehiculo) {
+                carrito.push(vehiculo);
+                res.redirect('/carrito');
+            } else {
+                res.status(404).send('Vehículo no encontrado');
+            }
+        })
+        .catch(error => {
+            console.error('Error al agregar al carrito:', error);
+            res.status(500).send('Error al agregar al carrito');
+        });
 };
 
 exports.verCarrito = (req, res) => {

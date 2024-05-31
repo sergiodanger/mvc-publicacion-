@@ -95,11 +95,4 @@ id,Marca,Modelo,Combustible,Año,Precio,Imagen1,Imagen2
 94,Mercedes-Benz,EQS,Eléctrico,2022,80.000.000,mercedes_eqs_01.jpg,mercedes_eqs_02.jpg
 95,Audi,RS Q8,Gasolina,2020,150.000.000,audi_rs_q8_01.jpg,audi_rs_q8_02.jpg
 96,Volkswagen,Arteon,Gasolina,2021,40.000.000,volkswagen_arteon_01.jpg,volkswagen_arteon_02.jpg
-97,Porsche,Panamera,Gasolina,2022,100.000.000,porsche_panamera_01.jpg,porsche_panamera_02.jpg
-98,Jeep,Grand Cherokee,Gasolina,2020,60.000.000,jeep_grand_cherokee_01.jpg,jeep_grand_cherokee_02.jpg
-99,Chrysler,300,Gasolina,2021,35.000.000,chrysler_300_01.jpg,chrysler_300_02.jpg
-100,Dodge,Durango,Gasolina,2022,50.000.000,dodge_durango_01.jpg,dodge_durango_02.jpg
-101,Ferrari,F8 Tributo,Gasolina,2020,300.000.000,ferrari_f8_tributo_01.jpg,ferrari_f8_tributo_02.jpg
-102,Lamborghini,Urus,Gasolina,2021,350.000.000,lamborghini_urus_01.jpg,lamborghini_urus_02.jpg
-103,Maserati,Levante,Gasolina,2022,120.000.000,maserati_levante_01.jpg,maserati_levante_02.jpg
-104,Tesla,cybertruck,petroleo,undefined,10000000,1716964987078.jpg,1716964987081.jpg
+97,Tesla ,cybertruck,bencina,undefined,10000000,1716991304552.webp,1716991304552.webp
